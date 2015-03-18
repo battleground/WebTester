@@ -79,12 +79,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            mUrlEdit.setText(url);
+            setTitle(view.getTitle());
+
             mProgressNum.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.VISIBLE);
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
+            setTitle(view.getTitle());
             mProgressNum.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.GONE);
         }
@@ -188,6 +192,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if(mWebView.canGoBack()){
+            mWebView.goBack();
+            return;
+        }
+        super.onBackPressed();
+    }
 
     private void buildWebView(WebView webView) {
         webView.setHorizontalScrollBarEnabled(false);//水平不显示
@@ -201,7 +213,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        webSettings.setLoadsImagesAutomatically(true);
+//        webSettings.setLoadsImagesAutomatically(true);
     }
 
 }
