@@ -6,7 +6,7 @@ test
 License
 -------
 
-Copyright 2014 The Android Open Source Project, Inc.
+Copyright 2015 The Android Open Source Project, battleground.
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
