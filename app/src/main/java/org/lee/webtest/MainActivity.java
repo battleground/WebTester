@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -32,6 +33,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private ProgressBar mProgressBar;
     private WebView mWebView;
 
+    String jsss = "https://movie.douban.com/subject/26387728/comments?sort=new_score\n" +
+            "http://imfile1.b0.upaiyun.com/inmi/js/tv_web_view.js";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +69,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 return false;
             }
         });
+
+        mWebView.addJavascriptInterface(new JsIf() {
+            @Override
+            public void webViewPost(String s) {
+                Log.anchor(s);
+            }
+        }, "webobj");
         buildWebView(mWebView);
-        mWebView.loadUrl("http://www.woolom.com");
+        mWebView.loadUrl("http://www.abooc.com");
     }
 
     private WebViewClient mWebViewClient = new WebViewClient() {
@@ -151,6 +161,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
+
+    interface JsIf{
+        @JavascriptInterface
+        void webViewPost(String a);
+    }
+
 
     private String js = "var newscript = document.createElement(\"script\");\n" +
             "        newscript.src=\"js-url\";\n" +
