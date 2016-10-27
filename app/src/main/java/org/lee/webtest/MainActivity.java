@@ -19,6 +19,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.abooc.plugin.about.About;
+import com.abooc.plugin.about.AboutActivity;
+
 import org.lee.android.util.Log;
 import org.lee.android.util.Toast;
 
@@ -40,6 +43,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.init(this);
+        About.defaultAbout(this);
         setContentView(R.layout.activity_main);
         init();
     }
@@ -62,7 +66,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mWebView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     AppFunction.hideInputMethod(getBaseContext(), v);
                     return false;
                 }
@@ -147,7 +151,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case R.id.Refresh:
                 mWebView.reload();
                 return true;
@@ -162,7 +166,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    interface JsIf{
+    interface JsIf {
         @JavascriptInterface
         void webViewPost(String a);
     }
@@ -210,7 +214,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if(mWebView.canGoBack()){
+        if (mWebView.canGoBack()) {
             mWebView.goBack();
             return;
         }

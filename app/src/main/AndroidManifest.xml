@@ -6,7 +6,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/plugin_about_ic_about"
+        android:logo="@drawable/ic_refresh"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
@@ -21,11 +22,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".AboutActivity"
-            android:label="返回"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
