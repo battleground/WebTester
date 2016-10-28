@@ -39,7 +39,7 @@ public class AboutActivity extends AppCompatActivity implements View.OnClickList
         TextView AppName = (TextView) findViewById(R.id.AppName);
         AppName.setText(about.AppName);
         TextView VersionView = (TextView) findViewById(R.id.Version);
-        VersionView.setText(about.versionName + " (build:" + about.versionCode + ")");
+        VersionView.setText("版本：" + about.versionName + " (build:" + about.versionCode + ")");
         TextView Copyright = (TextView) findViewById(R.id.Copyright);
         Copyright.setText(about.copyright);
         ImageView logoView = (ImageView) findViewById(R.id.Logo);

@@ -44,7 +44,7 @@
                 android:id="@+id/Version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="v1.1.0 (build:334)"
+                android:text="版本：1.1.0 (build:334)"
                 android:textStyle="italic" />
 
         </LinearLayout>
