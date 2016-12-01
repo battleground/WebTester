@@ -21,9 +21,8 @@ import android.widget.TextView;
 
 import com.abooc.plugin.about.About;
 import com.abooc.plugin.about.AboutActivity;
-
-import org.lee.android.util.Log;
-import org.lee.android.util.Toast;
+import com.abooc.util.Debug;
+import com.abooc.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -77,7 +76,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         mWebView.addJavascriptInterface(new JsIf() {
             @Override
             public void webViewPost(String s) {
-                Log.anchor(s);
+                Debug.anchor(s);
             }
         }, "webobj");
         buildWebView(mWebView);
@@ -121,7 +120,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         @Override
         public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-            Log.anchor(consoleMessage.message());
+            Debug.anchor(consoleMessage.message());
             mMessageText.setText("Log:"
                     + "\n" + consoleMessage.message()
                     + "\n" + consoleMessage.lineNumber()
@@ -191,7 +190,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 AppFunction.hideInputMethod(getBaseContext(), v);
                 mMessageText.setText(null);
                 url = UrlUtils.smartUrlFilter(url);
-                Log.anchor(url);
+                Debug.anchor(url);
                 mWebView.loadUrl(url);
                 return;
             case R.id.JsInject:
@@ -204,7 +203,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 jsAdress = UrlUtils.smartUrlFilter(jsAdress, false);
                 js = js.replace("js-url", jsAdress);
                 mWebView.loadUrl("javascript:" + js);
-                Log.anchor(js);
+                Debug.anchor(js);
 //                mWebView.loadUrl("javascript:alert('hahh')");
                 Toast.show("JavaScript注入中...");
                 return;
