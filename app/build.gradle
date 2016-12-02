@@ -41,7 +41,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.abooc.debug:debug-core:1.1.4'
     compile 'com.android.support:appcompat-v7:25.+'
-    compile project(':about')
+
+    compile 'com.abooc.debug:debug-core:1.1.4'
+    compile 'com.abooc.plugin:plugin-about:1.0.4'
 }

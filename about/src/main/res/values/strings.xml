@@ -1,5 +1,0 @@
-<resources>
-    <string name="plugin_about_name">关于</string>
-    <string name="plugin_about_powered_by_url">http://www.abooc.com/</string>
-    <string name="plugin_about_powered_by"><u>\@ABOOC:about</u> 强力驱动</string>
-</resources>
